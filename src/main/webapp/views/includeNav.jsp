@@ -10,7 +10,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="index.html">Collaborateur</a>
+				<a class="nav-link active" href="<%= request.getContextPath() %>/collaborateurs/lister">Collaborateur</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Statistiques</a>
