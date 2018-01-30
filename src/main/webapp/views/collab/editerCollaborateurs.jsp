@@ -8,6 +8,8 @@
     <% 
     	Collaborateur collab = (Collaborateur) request.getAttribute("collab");
     %>
+    <form method="post" action="<%= request.getContextPath() %>/collaborateurs/editer">
+    	<input type="hidden" name="mat" value="<%= collab.getMatricule() %>">
         <div class="row">
             <div class="col-12 offset-lg-4">
                 <h1><%= collab.getNom() %> <%= collab.getPrenom() %> - <%= collab.getMatricule() %></h1>
@@ -16,9 +18,9 @@
                 <div class="float-right">
                     <div class="col-md-3">
                     <% if(collab.getActif()) { %>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <input name="actif" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <%} else { %>
-                    	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+                    	<input name="actif" class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
                     <%} %>
                         <label class="form-check-label" for="defaultCheck1">
                             Désactiver
@@ -84,7 +86,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Adresse</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getAdresse() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="adresse" value="<%= collab.getAdresse() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
                                             <div class="invalid-feedback">
                                                 L'adresse est obligatoire.
                                             </div>
@@ -102,7 +104,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Numéro de téléphone</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getTelephone() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="tel" value="<%= collab.getTelephone() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
                                             <div class="invalid-feedback">
                                                 Le numéro de téléphone est obligatoire.
                                             </div>
@@ -126,7 +128,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Département</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <select class="custom-select">
+                                            <select name="depart" class="custom-select">
                                             	<% switch(collab.getDepartement().getId()) {
 													 case 1 : %>
 		                                                <option value="1" selected>Comptabilité</option>
@@ -155,7 +157,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Nom</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getIntitulePoste() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="poste" value="<%= collab.getIntitulePoste() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
                                             <div class="invalid-feedback">
                                                 Le nom du poste est obligatoire.
                                             </div>
@@ -179,7 +181,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">IBAN</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getIban() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="iban" value="<%= collab.getIban() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
                                             <div class="invalid-feedback">
                                                 L'IBAN est obligatoire.
                                             </div>
@@ -188,7 +190,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">BIC</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getBic() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="bic" value="<%= collab.getBic() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
                                             <div class="invalid-feedback">
                                                 Le BIC est obligatoire.
                                             </div>
@@ -201,9 +203,11 @@
                 </div>
                 <br/>
                 <div>
-                    <input class="btn btn-dark float-right" type="submit" value="sauvegarder">
+                    <input class="btn btn-dark float-right" type="submit" name="save" value="sauvegarder">
                 </div>
             </div>
         </div>
-    </div>
+     </form>
+  </div>
+   
 <%@ include file="../includeFooter.jsp" %>

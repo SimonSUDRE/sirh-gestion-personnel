@@ -22,14 +22,32 @@ public class EditerCollaborateursController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			Collaborateur collab = new Collaborateur();
-			for(Collaborateur col : collabService.listerCollaborateurs()) {
-				if(col.getMatricule().equals(req.getParameter("mat"))) {
-					collab = col;
+			if(req.getParameter("save") != null) {
+				for(Collaborateur col : collabService.listerCollaborateurs()) {
+					if(col.getMatricule().equals(req.getParameter("mat"))) {
+						col.setActif(req.getParameter("actif") == null);
+						col.setAdresse(req.getParameter("adresse"));
+						col.setIntitulePoste(req.getParameter("poste"));
+						col.setTelephone(req.getParameter("tel"));
+						
+						col.setBic(req.getParameter("bic"));
+						col.setIban(req.getParameter("iban"));
+						break;
+					}
 				}
+				req.setAttribute("listeCollab", collabService.listerCollaborateurs());
+			}			
+			else {
+				Collaborateur collab = new Collaborateur();
+				for(Collaborateur col : collabService.listerCollaborateurs()) {
+					if(col.getMatricule().equals(req.getParameter("mat"))) {
+						collab = col;
+						break;
+					}
+				}
+				req.setAttribute("collab", collab);
+				req.getRequestDispatcher("/views/collab/editerCollaborateurs.jsp").forward(req, resp);
 			}
-			req.setAttribute("collab", collab);
-			req.getRequestDispatcher("/views/collab/editerCollaborateurs.jsp").forward(req, resp);
 			
 		} catch(ServletException | IOException e) {
 			e.getMessage();
