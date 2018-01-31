@@ -1,7 +1,5 @@
 package dev.sgp.web;
 
-import static dev.sgp.web.CreerCollaborateursController.collabService;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,7 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
+import dev.sgp.utils.Constantes;
+
 public class ListerCollaborateursController extends HttpServlet {
+	
+	public static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	
+	public static DepartementService departService = Constantes.DEPART_SERVICE;
 	
 	/** long : serialVersionUID */
 	private static final long serialVersionUID = 1L;

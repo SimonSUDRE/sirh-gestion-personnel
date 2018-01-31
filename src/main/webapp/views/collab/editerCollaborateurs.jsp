@@ -59,7 +59,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Nom</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getNom() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly required>
+                                            <input value="<%= collab.getNom() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly>
                                             <div class="invalid-feedback">
                                                 Le nom est obligatoire.
                                             </div>
@@ -68,7 +68,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Prénom</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getPrenom() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" readonly placeholder="" required>
+                                            <input value="<%= collab.getPrenom() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" readonly placeholder="">
                                             <div class="invalid-feedback">
                                                 Le prénom est obligatoire.
                                             </div>
@@ -77,7 +77,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Date de naissance</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getDateDeNaissance().toString() %>" type="date" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly required>
+                                            <input value="<%= collab.getDateDeNaissance().toString() %>" type="date" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly>
                                             <div class="invalid-feedback">
                                                 Le date de naissance est obligatoire.
                                             </div>
@@ -95,7 +95,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Numéro de sécurité sociale</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input value="<%= collab.getNumeroDeSecuriteSociale() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly required>
+                                            <input value="<%= collab.getNumeroDeSecuriteSociale() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" readonly>
                                             <div class="invalid-feedback">
                                                 Le numéro de sécurité sociale est obligatoire.
                                             </div>
@@ -104,7 +104,7 @@
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Numéro de téléphone</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input name="tel" value="<%= collab.getTelephone() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" required>
+                                            <input name="tel" value="<%= collab.getTelephone() %>" type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="">
                                             <div class="invalid-feedback">
                                                 Le numéro de téléphone est obligatoire.
                                             </div>

@@ -45,8 +45,14 @@
 		<article>
 			<div class="taillecollab container">
 				<div class="row">
-				<% 
+				<%
+				//List<Collaborateur> collas = (List<Collaborateur>) request.getAttribute("listeCollab");
 				List<Collaborateur> collabs = (List<Collaborateur>) request.getAttribute("listeCollab");
+				//if(!request.getParameter("depart").equals("4")) { collabs.stream(); }
+				//if(!request.getParameter("name").equals("")) { collabs.stream(); }
+				//if(request.getParameter("desac") == null) { collabs.stream(); }
+				//else { collabs = collas; }
+				
 				for(Collaborateur collab : collabs) {
 				%>
 					<div class="collab col-md-6 col-lg-6 col-sm-12">

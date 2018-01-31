@@ -1,6 +1,7 @@
 package dev.sgp.web;
 
-import static dev.sgp.web.CreerCollaborateursController.collabService;
+import static dev.sgp.web.ListerCollaborateursController.collabService;
+import static dev.sgp.web.ListerCollaborateursController.departService;
 
 import java.io.IOException;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Departement;
 
 public class EditerCollaborateursController  extends HttpServlet {
 	
@@ -29,7 +31,11 @@ public class EditerCollaborateursController  extends HttpServlet {
 						col.setAdresse(req.getParameter("adresse"));
 						col.setIntitulePoste(req.getParameter("poste"));
 						col.setTelephone(req.getParameter("tel"));
-						
+						for(Departement d : departService.listerDepartements()) {
+							if(d.getId() == Integer.parseInt(req.getParameter("depart"))) {
+								col.setDepartement(d);
+							}
+						}
 						col.setBic(req.getParameter("bic"));
 						col.setIban(req.getParameter("iban"));
 						break;

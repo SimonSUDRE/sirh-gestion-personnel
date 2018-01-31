@@ -1,5 +1,8 @@
 package dev.sgp.web;
 
+import static dev.sgp.web.ListerCollaborateursController.collabService;
+import static dev.sgp.web.ListerCollaborateursController.departService;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -11,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
-import dev.sgp.service.CollaborateurService;
-import dev.sgp.service.DepartementService;
-import dev.sgp.utils.Constantes;
 
 public class CreerCollaborateursController extends HttpServlet {
 	
@@ -23,10 +23,6 @@ public class CreerCollaborateursController extends HttpServlet {
 	private static int id = 1;
 	
 	private static ResourceBundle props = ResourceBundle.getBundle("application");
-	
-	public static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
-	
-	private static DepartementService departService = Constantes.DEPART_SERVICE;
 	
 	private static void compte() {
 		id++;
