@@ -13,9 +13,9 @@ import dev.sgp.utils.Constantes;
 
 public class ListerCollaborateursController extends HttpServlet {
 	
-	public static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	public static final CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	
-	public static DepartementService departService = Constantes.DEPART_SERVICE;
+	public static final DepartementService departService = Constantes.DEPART_SERVICE;
 	
 	/** long : serialVersionUID */
 	private static final long serialVersionUID = 1L;

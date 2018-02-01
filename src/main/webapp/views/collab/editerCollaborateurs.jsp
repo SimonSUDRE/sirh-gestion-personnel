@@ -8,8 +8,6 @@
     <% 
     	Collaborateur collab = (Collaborateur) request.getAttribute("collab");
     %>
-    <form method="post" action="<%= request.getContextPath() %>/collaborateurs/editer">
-    	<input type="hidden" name="mat" value="<%= collab.getMatricule() %>">
         <div class="row">
             <div class="col-12 offset-lg-4">
                 <h1><%= collab.getNom() %> <%= collab.getPrenom() %> - <%= collab.getMatricule() %></h1>
@@ -124,32 +122,32 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                <form class="needs-validation" novalidate>
+                                <div class="needs-validation" novalidate>
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Département</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <select name="depart" class="custom-select">
+                                            <select name="depart" class="custom-select" required>
                                             	<% switch(collab.getDepartement().getId()) {
 													 case 1 : %>
-		                                                <option value="1" selected>Comptabilité</option>
-		                                                <option value="2">Informatique</option>
-		                                                <option value="3">Resources Humaines</option>
+		                                                <option value="Comptabilité" selected>Comptabilité</option>
+		                                                <option value="Informatique">Informatique</option>
+		                                                <option value="Resources Humaines">Resources Humaines</option>
 	                                                	<% break; 
 	                                                case 2 : %>
-		                                                <option value="1" >Comptabilité</option>
-		                                                <option value="2" selected>Informatique</option>
-		                                                <option value="3">Resources Humaines</option>
+		                                                <option value="Comptabilité" >Comptabilité</option>
+		                                                <option value="Informatique" selected>Informatique</option>
+		                                                <option value="Resources Humaines">Resources Humaines</option>
 	                                                	<% break; 
 	                                                case 3 : %>
-		                                                <option value="1">Comptabilité</option>
-		                                                <option value="2">Informatique</option>
-		                                                <option value="3" selected>Resources Humaines</option>
+		                                                <option value="Comptabilité" >Comptabilité</option>
+		                                                <option value="Informatique" >Informatique</option>
+		                                                <option value="Resources Humaines" selected>Resources Humaines</option>
 	                                                	<% break; 
 	                                                default : %>
-		                                                <option value="1" selected>Comptabilité</option>
-		                                                <option value="2">Informatique</option>
-		                                                <option value="3">Resources Humaines</option>
-		                                                	<% break; 
+		                                                <option value="Comptabilité">Comptabilité</option>
+		                                                <option value="Informatique">Informatique</option>
+		                                                <option value="Resources Humaines">Resources Humaines</option>
+		                                                <% break; 
 												} %>
                                             </select>
                                         </div>
@@ -163,7 +161,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -177,7 +175,7 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                             <div class="card-body">
-                                <form class="needs-validation" novalidate>
+                                <div class="needs-validation" novalidate>
                                     <div class="form-group row">
                                         <label for="colFormLabelLg" class="col-md-5 col-sm-12 col-form-label col-form-label-lg">IBAN</label>
                                         <div class="col-sm-12 col-md-7">
@@ -196,18 +194,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <br/>
                 <div>
-                    <input class="btn btn-dark float-right" type="submit" name="save" value="sauvegarder">
+	                <form method="post" action="<%= request.getContextPath() %>/collaborateurs/editer">
+	    				<input type="hidden" name="mat" value="<%= collab.getMatricule() %>">
+	                    <input class="btn btn-dark float-right" type="submit" name="save" value="sauvegarder">
+	                </form>
                 </div>
             </div>
         </div>
-     </form>
   </div>
    
 <%@ include file="../includeFooter.jsp" %>

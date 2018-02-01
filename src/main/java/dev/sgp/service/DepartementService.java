@@ -23,4 +23,13 @@ public class DepartementService {
 	public void sauvegarderDepartement(Integer id, String nom) {
 		listeDepartements.add(new Departement(id, nom));
 	}
+	
+	public Departement getDepartementById(Integer id) {
+		for(Departement d : listeDepartements) {
+			if(id == d.getId()) {
+				return d;
+			}
+		}
+		return null;
+	}
 }

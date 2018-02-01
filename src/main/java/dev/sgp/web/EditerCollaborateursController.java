@@ -31,11 +31,8 @@ public class EditerCollaborateursController  extends HttpServlet {
 						col.setAdresse(req.getParameter("adresse"));
 						col.setIntitulePoste(req.getParameter("poste"));
 						col.setTelephone(req.getParameter("tel"));
-						for(Departement d : departService.listerDepartements()) {
-							if(d.getId() == Integer.parseInt(req.getParameter("depart"))) {
-								col.setDepartement(d);
-							}
-						}
+						Departement d = departService.getDepartementById(Integer.parseInt(req.getParameter("depart")));
+						col.setDepartement(d);
 						col.setBic(req.getParameter("bic"));
 						col.setIban(req.getParameter("iban"));
 						break;
