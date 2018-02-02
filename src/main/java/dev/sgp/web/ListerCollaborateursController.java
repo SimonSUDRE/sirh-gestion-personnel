@@ -25,12 +25,10 @@ public class ListerCollaborateursController extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
+	
 			req.setAttribute("listeCollab", collabService.listerCollaborateurs());
 			req.getRequestDispatcher("/views/collab/listerCollaborateurs.jsp").forward(req, resp);
-		} catch(ServletException | IOException e) {
-			e.getMessage();
-		}
+		
 	}
 	
 	/* (non-Javadoc)
