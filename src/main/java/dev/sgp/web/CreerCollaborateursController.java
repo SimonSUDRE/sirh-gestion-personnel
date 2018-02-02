@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;import org.omg.CORBA.Request;
+import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
 
@@ -27,24 +27,19 @@ public class CreerCollaborateursController extends HttpServlet {
 	private static void compte() {
 		id++;
 	}
-		
+	
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			if(req.getParameter("creer") != null) {		
-								}
-			else {
-				req.getRequestDispatcher("/views/collab/creerCollaborateurs.jsp").forward(req, resp);
-			}
-			
-		} catch(ServletException | IOException e) {
+			req.getRequestDispatcher("/WEB-INF/views/collab/creerCollaborateurs.jsp").forward(req, resp);
+		} catch (ServletException | IOException e) {
 			e.getMessage();
 		}
 	}
-	
+		
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
@@ -73,7 +68,6 @@ public class CreerCollaborateursController extends HttpServlet {
 			req.setAttribute("listeCollab", collabService.listerCollaborateurs());
 			
 			resp.sendRedirect(req.getContextPath() + "/collaborateurs/lister");
-			//req.getRequestDispatcher("/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 
 		} catch(IOException e) {
 			e.getMessage();

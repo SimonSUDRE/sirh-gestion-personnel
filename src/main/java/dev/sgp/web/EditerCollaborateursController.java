@@ -24,23 +24,7 @@ public class EditerCollaborateursController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			if(req.getParameter("save") != null) {
-				for(Collaborateur col : collabService.listerCollaborateurs()) {
-					if(col.getMatricule().equals(req.getParameter("mat"))) {
-						col.setActif(req.getParameter("actif") == null);
-						col.setAdresse(req.getParameter("adresse"));
-						col.setIntitulePoste(req.getParameter("poste"));
-						col.setTelephone(req.getParameter("tel"));
-						Departement d = departService.getDepartementById(Integer.parseInt(req.getParameter("depart")));
-						col.setDepartement(d);
-						col.setBic(req.getParameter("bic"));
-						col.setIban(req.getParameter("iban"));
-						break;
-					}
-				}
-				req.setAttribute("listeCollab", collabService.listerCollaborateurs());
-			}			
-			else {
+			if(req.getParameter("save") == null) {
 				Collaborateur collab = new Collaborateur();
 				for(Collaborateur col : collabService.listerCollaborateurs()) {
 					if(col.getMatricule().equals(req.getParameter("mat"))) {
@@ -49,7 +33,7 @@ public class EditerCollaborateursController  extends HttpServlet {
 					}
 				}
 				req.setAttribute("collab", collab);
-				req.getRequestDispatcher("/views/collab/editerCollaborateurs.jsp").forward(req, resp);
+				req.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateurs.jsp").forward(req, resp);
 			}
 			
 		} catch(ServletException | IOException e) {
@@ -62,10 +46,19 @@ public class EditerCollaborateursController  extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			doGet(req, resp);
-		} catch(ServletException | IOException e) {
-			e.getMessage();
+		for(Collaborateur col : collabService.listerCollaborateurs()) {
+			if(col.getMatricule().equals(req.getParameter("mat"))) {
+				col.setActif(req.getParameter("actif") == null);
+				col.setAdresse(req.getParameter("adresse"));
+				col.setIntitulePoste(req.getParameter("poste"));
+				col.setTelephone(req.getParameter("tel"));
+				Departement d = departService.getDepartementById(Integer.parseInt(req.getParameter("depart")));
+				col.setDepartement(d);
+				col.setBic(req.getParameter("bic"));
+				col.setIban(req.getParameter("iban"));
+				break;
+			}
 		}
+		req.setAttribute("listeCollab", collabService.listerCollaborateurs());
 	}
 }

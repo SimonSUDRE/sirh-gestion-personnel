@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>sgp</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	<servlet>
+		<servlet-name>CollaborateursController</servlet-name>
+		<servlet-class>dev.sgp.web.CollaborateursController</servlet-class>
+	</servlet>
 	<servlet>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
@@ -21,6 +24,10 @@
 		<servlet-name>EditerCollaborateursController</servlet-name>
 		<servlet-class>dev.sgp.web.EditerCollaborateursController</servlet-class>
 	</servlet>
+	<servlet-mapping>
+		<servlet-name>CollaborateursController</servlet-name>
+		<url-pattern>/collaborateurs</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/lister</url-pattern>
