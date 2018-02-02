@@ -52,13 +52,24 @@ public class EditerCollaborateursController  extends HttpServlet {
 				col.setAdresse(req.getParameter("adresse"));
 				col.setIntitulePoste(req.getParameter("poste"));
 				col.setTelephone(req.getParameter("tel"));
-				Departement d = departService.getDepartementById(Integer.parseInt(req.getParameter("depart")));
-				col.setDepartement(d);
+				if(isInteger(req.getParameter("depart"))) {
+					Departement d = departService.getDepartementById(Integer.parseInt(req.getParameter("depart")));
+					col.setDepartement(d);
+				}
 				col.setBic(req.getParameter("bic"));
 				col.setIban(req.getParameter("iban"));
 				break;
 			}
 		}
 		req.setAttribute("listeCollab", collabService.listerCollaborateurs());
+	}
+	
+	public static boolean isInteger(String s) {
+	    try { 
+	        Integer.parseInt(s); 
+	    } catch(NumberFormatException e) { 
+	        return false; 
+	    }
+	    return true;
 	}
 }
