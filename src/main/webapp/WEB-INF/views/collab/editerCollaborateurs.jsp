@@ -149,7 +149,7 @@
 					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 						data-parent="#accordion">
 						<div class="card-body">
-							<div class="needs-validation" novalidate>
+							<div class="needs-validation" novalidate="novalidate">
 								<div class="form-group row">
 									<label for="colFormLabelLg"
 										class="col-md-5 col-sm-12 col-form-label col-form-label-lg">Département</label>
@@ -220,7 +220,7 @@
 					<div id="collapseThree" class="collapse"
 						aria-labelledby="headingThree" data-parent="#accordion">
 						<div class="card-body">
-							<div class="needs-validation" novalidate>
+							<div class="needs-validation" novalidate="novalidate">
 								<div class="form-group row">
 									<label for="colFormLabelLg"
 										class="col-md-5 col-sm-12 col-form-label col-form-label-lg">IBAN</label>
